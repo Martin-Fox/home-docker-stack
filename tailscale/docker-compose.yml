@@ -1,0 +1,23 @@
+services:
+  tailscale:
+    container_name: tailscale
+    hostname: tailscale-nas
+    image: tailscale/tailscale:stable
+    volumes:
+      - ./tailscale/tailscale:/var/lib # State data will be stored in this directory
+      - /dev/net/tun:/dev/net/tun # Required for tailscale to work
+    cap_add: # Required for tailscale to work
+      - net_admin
+      - sys_module
+    command: tailscaled
+    privileged: true
+    environment:
+      TS_AUTHKEY: tskey-auth-kPfCb56CNTRL-vFpu99GTzY5orfkRuA6KY5AvxFbNDP5L
+      TS_HOSTNAME: ContaboVPS
+      TS_EXTRA_ARGS: --advertise-exit-node --advertise-routes=172.20.0.0/16,172.25.0.0/16 --accept-routes
+    restart: unless-stopped
+    networks:
+      - tailscale
+networks:
+  tailscale:
+    name: tailscale_network
