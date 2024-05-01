@@ -1,6 +1,7 @@
 services:
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:latest
+#    image: lscr.io/linuxserver/qbittorrent:latest
+    image: kasmweb/qbittorrent:1.15.0
     container_name: qbittorrent
     environment:
       - PUID=1000
