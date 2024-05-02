@@ -14,7 +14,6 @@ services:
 #      - /dev/bus/usb/003/004:/dev/bus/usb/003/004
       - /dev/ttyACM0:/dev/ttyACM0
     restart: unless-stopped
-    privileged: false
     networks:
       - homeassistant
 #
