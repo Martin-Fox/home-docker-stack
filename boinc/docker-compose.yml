@@ -3,6 +3,7 @@ services:
 #    image: lscr.io/linuxserver/boinc:latest
     image: linuxserver/boinc:7.24.1
     container_name: boinc
+    command: sh -c "dpkg --add-architecture i386 && apt update && apt install libc6:i386 lib32z1 -y"
     security_opt:
       - seccomp:unconfined #optional
     environment:
