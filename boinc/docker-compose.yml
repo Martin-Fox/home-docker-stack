@@ -17,6 +17,8 @@ services:
 #      - 8181:8181
     devices:
       - /dev/dri:/dev/dri #optional
+#      - /dev/bus/usb:/dev/bus/usb #optional
+      - /dev/bus/usb/003/004:/dev/bus/usb/003/004
     restart: unless-stopped
     networks:
       - boinc
