@@ -1,9 +1,8 @@
 services:
   boinc:
-#    image: lscr.io/linuxserver/boinc:latest
     image: linuxserver/boinc:7.24.1
     container_name: boinc
-    command: sh -c "dpkg --add-architecture i386 && apt update && apt install libc6:i386 lib32z1 -y"
+#    command: sh -c "dpkg --add-architecture i386 && apt update && apt install libc6:i386 lib32z1 -y"
     security_opt:
       - seccomp:unconfined #optional
     environment:
@@ -15,14 +14,13 @@ services:
       - /path/to/data:/config
     ports:
       - 8081:8080
-#      - 8181:8181
     devices:
       - /dev/dri:/dev/dri #optional
-#      - /dev/bus/usb:/dev/bus/usb #optional
       - /dev/bus/usb/003/004:/dev/bus/usb/003/004
     restart: unless-stopped
     networks:
       - boinc
+    privileged: true
 networks:
   boinc:
     name: boinc_network
