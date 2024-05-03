@@ -2,7 +2,7 @@ services:
   boinc:
     image: linuxserver/boinc:7.24.1
     container_name: boinc
-#    command: sh -c "dpkg --add-architecture i386 && apt update && apt install libc6:i386 lib32z1 -y"
+#    command: sh -c "dpkg --add-architecture i386 && apt update && apt install libc6:i386 lib32z1 usbutils -y"
     security_opt:
       - seccomp:unconfined #optional
     environment:
@@ -17,7 +17,9 @@ services:
     restart: unless-stopped
     networks:
       - boinc
-    privileged: true
+    devices:
+      - /dev/bus/usb/003/004:/dev/bus/usb/003/004
+    privileged: false
 networks:
   boinc:
     name: boinc_network
