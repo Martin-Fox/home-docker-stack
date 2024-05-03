@@ -10,10 +10,10 @@ services:
       - /var/docker/haos/config:/config
       - /run/dbus:/run/dbus:ro
       - /etc/localtime:/etc/localtime:ro
-#    devices:
-#      - /dev/ttyACM0:/dev/ttyACM0
+    devices:
+#      - /dev/bus/usb/003/004:/dev/bus/usb/003/004
+      - /dev/ttyACM0:/dev/ttyACM0
     restart: unless-stopped
-    privileged: true
     networks:
       - homeassistant
 #
