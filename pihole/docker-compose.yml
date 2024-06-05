@@ -18,4 +18,4 @@ services:
     volumes:
       - './etc-pihole:/etc/pihole'
       - './etc-dnsmasq.d:/etc/dnsmasq.d'
-    restart: unless-stopped
+    restart: no
