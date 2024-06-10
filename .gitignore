@@ -11,8 +11,6 @@ calibre/config
 jellyfin/config
 kavita/config
 qbittorrent/config
-pihole/etc-dnsmasq.d/
-pihole/etc-pihole/
 
 # Environment files #
 #####################

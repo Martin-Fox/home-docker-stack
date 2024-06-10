@@ -13,7 +13,7 @@ services:
       - /NAS/downloads:/downloads
       - /NAS/Media:/Media
     ports:
-      - 8888:8888
+      - 8084:8888
       - 6881:6881
       - 6881:6881/udp
     restart: no

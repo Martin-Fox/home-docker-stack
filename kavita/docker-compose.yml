@@ -12,7 +12,7 @@ services:
       - /NAS/Media/Komiksy:/Komiksy
       - /NAS/Media/Manga:/Manga
     ports:
-      - 5000:5000
+      - 8083:5000
     restart: no
     networks:
       - kavita

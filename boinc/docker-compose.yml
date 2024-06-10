@@ -11,16 +11,15 @@ services:
       - TZ=Etc/UTC
       - PASSWORD= #optional
     volumes:
-      - /path/to/data:/config
+      - ./data:/config
     ports:
       - 8081:8080
     restart: no
-    networks:
-      - boinc
     devices:
       - /dev/bus/usb/:/dev/bus/usb/
     privileged: false
+    networks:
+      - boinc
 networks:
   boinc:
     name: boinc_network
-
