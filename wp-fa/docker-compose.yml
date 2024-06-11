@@ -1,8 +1,8 @@
 services:
-  mysql-ml:
+  mysql-fa:
     image: mysql:8.0
-    hostname: mysql-ml
-    container_name: mysql-ml
+    hostname: mysql-fa
+    container_name: mysql-fa
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -10,30 +10,30 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - ./mysql-ml:/var/lib/mysql
+      - ./mysql-fa:/var/lib/mysql
     networks:
-      - wp-ml
+      - wp-fa
 
-  wordpress-ml:
-    image: wordpress:6.5.4
-    hostname: wordpress-ml
-    container_name: wordpress-ml
+  wordpress-fa:
+    image: wordpress:6.5.3
+    hostname: wordpress-fa
+    container_name: wordpress-fa
     restart: unless-stopped
     environment:
-      WORDPRESS_DB_HOST: mysql-ml
+      WORDPRESS_DB_HOST: mysql-fa
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
       WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
     volumes:
-      - ./wp-ml:/var/www/html
+      - ./wp-fa:/var/www/html
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     ports:
-      - 8087:80
+      - 8088:80
     networks:
-      - wp-ml
+      - wp-fa
     depends_on:
-      - mysql-ml
+      - mysql-fa
 
 networks:
-  wp-ml:
-    name: wp-ml_network
+  wp-fa:
+    name: wp-fa_network

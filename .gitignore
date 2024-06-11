@@ -17,6 +17,8 @@ activepieces/redis/
 mishos/db/
 wp-ml/wp-ml/
 wp-ml/mysql-ml/
+wp-fa/wp-fa/
+wp-fa/mysql-fa/
 
 # Environment files #
 #####################
