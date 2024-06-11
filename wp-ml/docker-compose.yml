@@ -1,0 +1,37 @@
+services:
+  mysql-ml:
+    image: mysql:8.0
+    hostname: mysql-ml
+    container_name: mysql-ml
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./mysql-ml:/var/lib/mysql
+    networks:
+      - wp-ml
+
+  wordpress-ml:
+    image: wordpress:6.5.4
+    hostname: wordpress-ml
+    container_name: wordpress-ml
+    restart: unless-stopped
+    environment:
+      WORDPRESS_DB_HOST: mysql-ml
+      WORDPRESS_DB_USER: ${MYSQL_USER}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+    volumes:
+      - ./wp-ml:/var/www/html
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    networks:
+      - wp-ml
+    depends_on:
+      - mysql-ml
+
+networks:
+  wp-ml:
+    name: wp-ml_network

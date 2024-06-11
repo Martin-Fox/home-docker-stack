@@ -11,6 +11,12 @@ calibre/config
 jellyfin/config
 kavita/config
 qbittorrent/config
+activepieces/backup/
+activepieces/postgres/
+activepieces/redis/
+mishos/db/
+wp-ml/wp-ml/
+wp-ml/mysql-ml/
 
 # Environment files #
 #####################
