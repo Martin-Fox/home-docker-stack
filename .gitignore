@@ -19,6 +19,8 @@ wp-ml/wp-ml/
 wp-ml/mysql-ml/
 wp-fa/wp-fa/
 wp-fa/mysql-fa/
+itnews/wp-itnews/
+itnews/mysql-itnews/
 
 # Environment files #
 #####################
