@@ -3,6 +3,7 @@ services:
     image: alpine
     container_name: vod2pod_alpine
     environment:
+    restart: unless-stopped
       - YT_API_KEY
 #      - TWITCH_SECRET
 #      - TWITCH_CLIENT_ID
