@@ -1,6 +1,6 @@
 services:
   mishos-fe:
-    image: bljohnsondev/mishos-web:v0.2.2
+    image: bljohnsondev/mishos-web:v0.2.3
     container_name: mishos-fe
     environment:
       - DOCKER_BE_URL=http://mishos-be:3000/api
@@ -11,7 +11,7 @@ services:
       - mishos
 
   mishos-be:
-    image: bljohnsondev/mishos-api:v0.2.2
+    image: bljohnsondev/mishos-api:v0.2.3
     container_name: mishos-be
     environment:
       - GIN_MODE
