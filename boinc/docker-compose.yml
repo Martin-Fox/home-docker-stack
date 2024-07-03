@@ -1,6 +1,6 @@
 services:
   boinc:
-    image: linuxserver/boinc:7.24.1
+    image: linuxserver/boinc:8.0.2
     container_name: boinc
 #    command: sh -c "dpkg --add-architecture i386 && apt update && apt install libc6:i386 lib32z1 usbutils -y"
     security_opt:
