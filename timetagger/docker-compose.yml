@@ -6,7 +6,7 @@
 services:
   timetagger:
     image: ghcr.io/almarklein/timetagger:v23.9.2-nonroot
-    container_name: vod2pod_alpine
+    container_name: timetagger
     restart: unless-stopped
     ports:
       - "8091:80"
