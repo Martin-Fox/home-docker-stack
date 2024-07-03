@@ -15,7 +15,7 @@ services:
       - wp-fa
 
   wordpress-fa:
-    image: wordpress:6.5.3
+    image: wordpress:6.5.4
     hostname: wordpress-fa
     container_name: wordpress-fa
     restart: unless-stopped
