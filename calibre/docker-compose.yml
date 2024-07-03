@@ -1,7 +1,7 @@
 ---
 services:
   calibre:
-    image: linuxserver/calibre:7.5.1
+    image: linuxserver/calibre:7.13.0
     container_name: calibre
     security_opt:
       - seccomp:unconfined #optional
