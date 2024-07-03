@@ -1,0 +1,25 @@
+# !! Make sure to apply your own credentials                       !!
+# !! You can use e.g. https://timetagger.app/cred to generate them !!
+# !! In docker-compose characters '$' should be escaped as '$$'    !!
+# !! If you use a .env file, use single quotes instead of escaping !!
+
+services:
+  timetagger:
+    image: ghcr.io/almarklein/timetagger:v23.9.2-nonroot
+    container_name: timetagger
+    restart: unless-stopped
+    ports:
+      - "8091:80"
+    volumes:
+      - ./_timetagger:/opt/_timetagger
+    environment:
+      - TIMETAGGER_BIND
+      - TIMETAGGER_DATADIR
+      - TIMETAGGER_LOG_LEVEL
+      - TIMETAGGER_CREDENTIALS
+    networks:
+      - timetagger
+  
+networks:
+  timetagger:
+    name: timetagger_network
