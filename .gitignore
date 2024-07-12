@@ -23,6 +23,9 @@ itnews/wp-itnews/
 itnews/mysql-itnews/
 vod2pod/vod2pod_db/
 timetagger/_timetagger/
+vikunja/db/
+vikunja/files/
+
 
 # Environment files #
 #####################
