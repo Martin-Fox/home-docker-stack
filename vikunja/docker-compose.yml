@@ -1,0 +1,21 @@
+services:
+  vikunja:
+    image: vikunja/vikunja:0.24.0
+    container_name: vikunja
+    environment:
+      - VIKUNJA_SERVICE_JWTSECRET
+      - VIKUNJA_SERVICE_PUBLICURL
+      - VIKUNJA_DATABASE_PATH
+      - VIKUNJA_SERVICE_ENABLEREGISTRATION
+    ports:
+      - 8092:3456
+    volumes:
+      - ./files:/app/vikunja/files
+      - ./db:/db
+    restart: unless-stopped
+    networks:
+      - vikunja
+  
+networks:
+  vikunja:
+    name: vikunja_network    

@@ -1,0 +1,32 @@
+services:
+  plex:
+    image: lscr.io/linuxserver/plex:1.40.4
+    container_name: plex
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - VERSION=docker
+#      - PLEX_CLAIM
+    volumes:
+      - ./config:/config
+      - /NAS/Media/Programy:/Programy
+      - /NAS/Media/Filmy:/Filmy
+      - /NAS/Media/Seriale:/Seriale
+      - /NAS/Media/Anime:/Anime
+    ports:
+      - 32400:32400
+      - 1900:1900/udp
+      - 5353:5353/udp
+      - 8324:8324
+      - 32410:32410/udp
+      - 32412:32412/udp
+      - 32413:32413/udp
+      - 32414:32414/udp
+      - 32469:32469
+    restart: no
+    networks:
+      - plex
+networks:
+  plex:
+    name: plex_network

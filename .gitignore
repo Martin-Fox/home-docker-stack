@@ -23,8 +23,14 @@ itnews/wp-itnews/
 itnews/mysql-itnews/
 vod2pod/vod2pod_db/
 timetagger/_timetagger/
+<<<<<<< HEAD
 plex/config/
 vikunja/db/
+=======
+vikunja/db/
+vikunja/files/
+
+>>>>>>> vikunja
 
 # Environment files #
 #####################
